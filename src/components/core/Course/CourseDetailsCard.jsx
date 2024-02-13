@@ -46,7 +46,7 @@ function CourseDetailsCard( { course , setConfirmationModal , handleBuyCourse , 
                     // instructor cannot add courses to cart
                     // user && user.accountType !== "Instructor" && 
                     (
-                        <button disabled={ user && user.accountType !== "Instructor" }
+                        <button disabled={ user && user.accountType === "Instructor" }
                         className='bg-richblack-400 text-richblack-800 p-2 rounded-md font-semibold text-sm disabled:opacity-75 disabled:cursor-not-allowed'
                         onClick={ () => handleAddCart() }>
                             Add To Cart
@@ -59,7 +59,7 @@ function CourseDetailsCard( { course , setConfirmationModal , handleBuyCourse , 
                     // user && user.accountType !== "Instructor" && 
                     (
                         <div>
-                            <button disabled={ user && user.accountType !== "Instructor" }
+                            <button disabled={ user && user.accountType === "Instructor" }
                             className='w-full  bg-yellow-50 text-richblack-800 p-2 rounded-md font-semibold text-sm disabled:opacity-75 disabled:cursor-not-allowed'
                             onClick={ () => {
                                 user && course.studentsEnrolled.flatMap((c) => c._id).includes(user._id)
